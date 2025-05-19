@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Applying Product Thinking to LIMS Requirements Analysis</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background: #f8fafc;
+            color: #333;
+        }
+        .slide {
+            width: 900px; 
+            height: 600px; 
+            margin: 20px auto; 
+            padding: 40px;
+            background: white; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 8px; 
+            position: relative; 
+            display: none;
+        }
+        .active { display: block; }
+        h1 { 
+            color: #1e3a8a; 
+            font-size: 36px; 
+            margin-top: 0;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 10px;
+        }
+        h2 { 
+            color: #3b82f6; 
+            font-size: 24px; 
+            margin-top: 30px;
+        }
+        ul { 
+            font-size: 20px; 
+            line-height: 1.6;
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .cover { 
+            text-align: center; 
+            padding-top: 80px; 
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+        }
+        .cover h1 {
+            color: white;
+            border-bottom: 2px solid white;
+        }
+        .footer { 
+            position: absolute; 
+            bottom: 20px; 
+            right: 40px; 
+            color: #64748b;
+            font-size: 14px;
+        }
+        button {
+            position: fixed; 
+            top: 50%; 
+            background: #1e3a8a; 
+            color: white;
+            border: none; 
+            padding: 12px 18px; 
+            border-radius: 50%; 
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 100;
+            opacity: 0.8;
+        }
+        button:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        #prev { left: 20px; }
+        #next { right: 20px; }
+        .screenshot { 
+            border: 1px solid #e2e8f0; 
+            max-width: 80%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 15px auto;
+            display: block;
+        }
+        .kano-table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-size: 18px;
+        }
+        .kano-table th, .kano-table td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .kano-table th {
+            background-color: #1e3a8a;
+            color: white;
+        }
+        .kano-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        .highlight {
+            background-color: #fef3c7;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .tool-icon {
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        .two-column {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .column {
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Slide -->
+    <div class="slide active cover">
+        <h1>Applying Product Thinking to LIMS Requirements Analysis</h1>
+        <h2>From Vague Requests to Actionable Solutions</h2>
+        <p>LIMS Technical Consultant | Full Team Friday</p>
+        <div class="footer">Confidential - Internal Use Only</div>
+    </div>
+
+    <!-- Agenda -->
+    <div class="slide">
+        <h1>Agenda</h1>
+        <ul>
+            <li>Why Product Thinking Matters for Consultants</li>
+            <li>The 5Why Technique for Root Cause Analysis</li>
+            <li>Prototyping with Axure for Rapid Validation</li>
+            <li>Prioritization with KANO Model</li>
+            <li>Consultant's Toolkit: Practical Applications</li>
+        </ul>
+        <div class="footer">March 2024 | LIMS Optimization</div>
+    </div>
+
+    <!-- Why Product Thinking -->
+    <div class="slide">
+        <h1>Why Product Thinking Matters</h1>
+        <h2>Common Pain Points in LIMS Consulting</h2>
+        <ul>
+            <li>Clients say "the system is hard to use" but can't specify why</li>
+            <li>Requirements change repeatedly causing project delays</li>
+            <li>Technical solutions don't address real user needs</li>
+        </ul>
+        
+        <h2>Product Manager's Advantage</h2>
+        <div class="two-column">
+            <div class="column">
+                <ul>
+                    <li><strong>Structured Thinking</strong><br>
+                        <img class="tool-icon" src="https://cdn-icons-png.flaticon.com/512/732/732220.png" alt="XMind">
+                        XMind for requirement mapping</li>
+                </ul>
+            </div>
+            <div class="column">
+                <ul>
+                    <li><strong>Visual Communication</strong><br>
+                        <img class="tool-icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" alt="Axure">
+                        Axure for clickable prototypes</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">From Technical Consultant to Solution Architect</div>
+    </div>
+
+    <!-- 5Why Analysis -->
+    <div class="slide">
+        <h1>The 5Why Technique</h1>
+        <h2>Case Study: Slow Report Generation</h2>
+        
+        <table class="kano-table">
+            <tr>
+                <th>Why Level</th>
+                <th>Identified Cause</th>
+                <th>Verification Method</th>
+            </tr>
+            <tr>
+                <td>Why 1</td>
+                <td>SQL queries take too long</td>
+                <td>Database logs analysis</td>
+            </tr>
+            <tr>
+                <td>Why 2</td>
+                <td>Missing indexes on sample tables</td>
+                <td>EXPLAIN query plans</td>
+            </tr>
+            <tr>
+                <td>Why 3</td>
+                <td>Performance requirements not captured</td>
+                <td>Requirement docs review</td>
+            </tr>
+            <tr>
+                <td>Why 4</td>
+                <td>No standard checklist for performance needs</td>
+                <td>Process audit</td>
+            </tr>
+            <tr>
+                <td>Why 5</td>
+                <td>Assumed "technical details" weren't client's concern</td>
+                <td>Stakeholder interviews</td>
+            </tr>
+        </table>
+        
+        <div class="footer">
+            <strong>Solution:</strong> Created <span class="highlight">LIMS Performance Requirements Checklist</span> for all new projects
+        </div>
+    </div>
+
+    <!-- Axure Prototyping -->
+    <div class="slide">
+        <h1>Rapid Prototyping with Axure</h1>
+        <h2>Samples Management Redesign</h2>
+        
+        <div class="two-column">
+            <div class="column">
+                <h3>Current Process (7 steps)</h3>
+                <ul>
+                    <li>Manual data entry</li>
+                    <li>No batch operations</li>
+                    <li>3 confirmation dialogs</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3>Proposed Solution (3 steps)</h3>
+                <ul>
+                    <li>Excel template import</li>
+                    <li>Bulk status update</li>
+                    <li>Single confirmation</li>
+                </ul>
+            </div>
+        </div>
+        
+        <img class="screenshot" src="https://axureboutique.com/wp-content/uploads/2022/03/axure-prototype-example.gif" alt="Axure prototype comparison">
+        
+        <div class="footer">
+            <strong>Result:</strong> 68% reduction in training time for lab technicians
+        </div>
+    </div>
+
+    <!-- KANO Model -->
+    <div class="slide">
+        <h1>Prioritization with KANO Model</h1>
+        
+        <table class="kano-table">
+            <tr>
+                <th>Requirement Type</th>
+                <th>Impact on Satisfaction</th>
+                <th>LIMS Examples</th>
+            </tr>
+            <tr style="color:#ef4444">
+                <td><strong>Basic (Must-have)</strong></td>
+                <td>Causes dissatisfaction if missing</td>
+                <td>Data integrity, System uptime</td>
+            </tr>
+            <tr style="color:#3b82f6">
+                <td><strong>Performance (Linear)</strong></td>
+                <td>More is better proportionally</td>
+                <td>Report generation speed</td>
+            </tr>
+            <tr style="color:#10b981">
+                <td><strong>Delighters (Exciting)</strong></td>
+                <td>Unexpected but appreciated</td>
+                <td>AI anomaly detection</td>
+            </tr>
+        </table>
+        
+        <div class="two-column" style="margin-top:20px">
+            <div class="column">
+                <h3>How We Applied It:</h3>
+                <ul>
+                    <li>Surveyed 15 lab managers</li>
+                    <li>Mapped 32 feature requests</li>
+                    <li>Cut 40% low-priority items</li>
+                </ul>
+            </div>
+            <div class="column">
+                <img class="screenshot" style="width:100%" src="https://www.productplan.com/uploads/Kano-Model-1.png" alt="KANO model visualization">
+            </div>
+        </div>
+    </div>
+
+    <!-- Consultant's Toolkit -->
+    <div class="slide">
+        <h1>The Consultant's PM Toolkit</h1>
+        
+        <div class="two-column">
+            <div class="column">
+                <h2>For Requirement Analysis</h2>
+                <ul>
+                    <li><strong>5Why + Fishbone</strong><br>
+                        Root cause visualization</li>
+                    <li><strong>XMind Mapping</strong><br>
+                        Stakeholder needs hierarchy</li>
+                </ul>
+                
+                <h2>For Validation</h2>
+                <ul>
+                    <li><strong>Axure RP</strong><br>
+                        Low-fidelity prototyping</li>
+                    <li><strong>User Journey Maps</strong><br>
+                        Pain point identification</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>For Prioritization</h2>
+                <ul>
+                    <li><strong>KANO Model</strong><br>
+                        Feature classification</li>
+                    <li><strong>MoSCoW Method</strong><br>
+                        Must-have vs. Should-have</li>
+                </ul>
+                
+                <h2>For Execution</h2>
+                <ul>
+                    <li><strong>Text Blaze</strong><br>
+                        Quick response templates</li>
+                    <li><strong>Notion</strong><br>
+                        Requirements database</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer" style="text-align:center">
+            "Clients don't want features - they want problems solved"
+        </div>
+    </div>
+
+    <!-- Closing Slide -->
+    <div class="slide cover">
+        <h1>Key Takeaways</h1>
+        <ul style="text-align:left; width:70%; margin:30px auto; font-size:24px">
+            <li>Ask <span class="highlight">"why"</span> until you hit the root cause</li>
+            <li>Validate with <span class="highlight">prototypes</span> before building</li>
+            <li>Prioritize based on <span class="highlight">real impact</span>, not loudest voice</li>
+        </ul>
+        
+        <div style="margin-top:50px">
+            <h2>Q&A</h2>
+            <p>How could you apply one of these techniques to your current project?</p>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button id="prev" onclick="prevSlide()">←</button>
+    <button id="next" onclick="nextSlide()">→</button>
+
+    <script>
+        let slides = document.querySelectorAll('.slide');
+        let current = 0;
+
+        function showSlide(n) {
+            slides[current].classList.remove('active');
+            current = (n + slides.length) % slides.length;
+            slides[current].classList.add('active');
+        }
+
+        function nextSlide() { showSlide(current + 1); }
+        function prevSlide() { showSlide(current - 1); }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>
